@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCA Advocacia - Especialistas em Direito Previdenciário</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animations CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Google Fonts: Inter & Outfit for premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0A1128',
+                            dark: '#030816',
+                            gold: '#D4AF37',
+                            goldHover: '#b5952f'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030816;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        
+        .bg-gradient-hero {
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(10, 17, 40, 1), transparent 50%);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+
+        /* Tooltip WhatsApp */
+        .wa-tooltip {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            transform: translateX(20px);
+        }
+        
+        .wa-container:hover .wa-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        /* FAQ Accordion */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed w-full z-50 glass-panel border-b-0">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <img src="/imgs/logo.png" alt="Logo RCA Advocacia" class="h-10 w-auto opacity-90">
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#beneficios" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Benefícios</a>
+                <a href="#servicos" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Serviços</a>
+                <a href="#faq" class="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors">Dúvidas</a>
+                <a href="#contato" class="bg-brand-gold text-brand-dark font-bold py-2.5 px-6 rounded-lg hover:bg-brand-goldHover transition-all shadow-lg shadow-brand-gold/20">Fale Conosco</a>
+            </nav>
+            <!-- Mobile Menu Btn -->
+            <button id="menu-btn" class="md:hidden text-white z-50 p-2">
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-dark/98 backdrop-blur-xl hidden flex-col items-center justify-center space-y-8 z-[60]">
+        <button id="close-menu" class="absolute top-6 right-6 text-white p-2">
+            <i class="ph ph-x text-3xl"></i>
+        </button>
+        <a href="#beneficios" class="text-2xl font-heading text-gray-300 hover:text-brand-gold transition-colors mobile-link">Benefícios</a>
+        <a href="#servicos" class="text-2xl font-heading text-gray-300 hover:text-brand-gold transition-colors mobile-link">Serviços</a>
+        <a href="#faq" class="text-2xl font-heading text-gray-300 hover:text-brand-gold transition-colors mobile-link">Dúvidas Frequentes</a>
+        <a href="#contato" class="bg-brand-gold text-brand-dark font-bold py-4 px-10 rounded-xl text-2xl hover:bg-brand-goldHover transition-all shadow-lg shadow-brand-gold/20 mobile-link">Fale Conosco</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 pb-12 bg-gradient-hero">
+        <div class="absolute inset-0 bg-[url('/imgs/fundo.webp')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-6 text-brand-gold text-sm font-medium">
+                        <i class="ph-fill ph-scales"></i> Especialistas em Direito Previdenciário
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight mb-6">
+                        Garantindo o seu <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">Futuro e seus Direitos</span> no INSS
+                    </h1>
+                    <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
+                        Aposentadoria negada ou com valor baixo? Nossa equipe de especialistas avalia seu caso sem compromisso para garantir que você receba tudo o que é seu por direito.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+preciso+de+uma+an%C3%A1lise+gratuita+do+meu+caso+previdenci%C3%A1rio." target="_blank" class="w-full sm:w-auto bg-brand-gold text-brand-dark font-bold text-lg py-4 px-8 rounded-xl hover:bg-brand-goldHover transition-all shadow-xl shadow-brand-gold/20 flex items-center justify-center gap-2 group">
+                            <i class="ph-fill ph-whatsapp-logo text-2xl group-hover:scale-110 transition-transform"></i>
+                            Análise Gratuita no WhatsApp
+                        </a>
+                    </div>
+                    <div class="mt-8 flex items-center justify-center lg:justify-start gap-6 text-sm text-gray-400">
+                        <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Atendimento Nacional</div>
+                        <div class="flex items-center gap-2"><i class="ph-fill ph-check-circle text-green-500"></i> Sigilo Absoluto</div>
+                    </div>
+                </div>
+
+                <!-- Hero Form (Contact) -->
+                <div class="lg:w-5/12 w-full max-w-md" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brand-gold to-yellow-200"></div>
+                        <h3 class="text-2xl font-heading font-bold mb-2">Fale com um Especialista</h3>
+                        <p class="text-sm text-gray-400 mb-6">Preencha rapidamente para iniciarmos a análise do seu caso.</p>
+                        
+                        <form id="hero-form" class="space-y-4">
+                            <div>
+                                <input type="text" id="h-name" placeholder="Seu Nome" required class="w-full bg-black/20 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <div>
+                                <input type="tel" id="h-phone" placeholder="Seu WhatsApp" required class="w-full bg-black/20 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <button type="submit" class="w-full bg-white text-brand-dark font-bold py-3.5 rounded-lg hover:bg-gray-200 transition-colors flex justify-center items-center gap-2">
+                                Enviar para Análise <i class="ph ph-arrow-right"></i>
+                            </button>
+                            <p class="text-xs text-gray-500 text-center mt-4">Suas informações estão 100% seguras conosco.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Authority Strip -->
+    <section class="py-8 border-y border-white/5 bg-black/30 backdrop-blur-sm">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+                <div data-aos="fade-up" data-aos-delay="0">
+                    <p class="text-3xl font-heading font-bold text-brand-gold mb-1">98%</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">de Satisfação</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <p class="text-3xl font-heading font-bold text-brand-gold mb-1">+10</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Anos de Experiência</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-3xl font-heading font-bold text-brand-gold mb-1">+5k</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Casos Analisados</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <p class="text-3xl font-heading font-bold text-brand-gold mb-1">100%</p>
+                    <p class="text-xs text-gray-400 uppercase tracking-wider">Foco no Cliente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefícios -->
+    <section id="beneficios" class="py-24 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-gold/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Por que escolher a RCA Advocacia?</h2>
+                <p class="text-gray-400">Trabalhamos incansavelmente para reverter injustiças do INSS e garantir o seu conforto.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefício 1 -->
+                <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 mx-auto bg-brand-gold/10 rounded-full flex items-center justify-center mb-6 text-brand-gold">
+                        <i class="ph ph-magnifying-glass text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-3">Análise Gratuita e Minuciosa</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Avaliamos toda a sua documentação sem compromisso inicial para traçar a melhor estratégia previdenciária.</p>
+                </div>
+                <!-- Benefício 2 -->
+                <div class="glass-panel p-8 rounded-2xl text-center relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-b from-brand-gold/5 to-transparent opacity-50"></div>
+                    <div class="w-16 h-16 mx-auto bg-brand-gold/10 rounded-full flex items-center justify-center mb-6 text-brand-gold relative z-10">
+                        <i class="ph ph-hand-coins text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-3 relative z-10">Pagamento no Êxito</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed relative z-10">Na maioria dos casos, nossos honorários são pagos apenas se você ganhar a causa. O seu risco é zero.</p>
+                </div>
+                <!-- Benefício 3 -->
+                <div class="glass-panel p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 mx-auto bg-brand-gold/10 rounded-full flex items-center justify-center mb-6 text-brand-gold">
+                        <i class="ph ph-users-three text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold mb-3">Atendimento Humanizado</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Entendemos a sua urgência. Oferecemos suporte online ou presencial com total clareza em cada etapa do processo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="py-24 bg-black/40">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Nossas Especialidades em <span class="text-brand-gold">Direito Previdenciário</span></h2>
+                    <p class="text-gray-400">Identifique o seu caso abaixo. Se não encontrar, entre em contato mesmo assim, pois analisamos todas as situações junto ao INSS.</p>
+                </div>
+                <a href="#contato" class="hidden md:flex items-center gap-2 text-brand-gold font-medium hover:text-white transition-colors">
+                    Ver todos os serviços <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Serviço 1 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="50">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-calendar-check text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Aposentadorias</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Aposentadoria por tempo de contribuição ou idade. Garantimos o cálculo correto para o melhor benefício possível.</p>
+                </div>
+                <!-- Serviço 2 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-shield-warning text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Aposentadoria Especial</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Para profissionais expostos a agentes nocivos, perigosos ou insalubres (médicos, frentistas, vigilantes, etc).</p>
+                </div>
+                <!-- Serviço 3 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="150">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-first-aid text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Auxílio-Doença / Invalidez</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Teve o benefício negado na perícia? Nós recorremos para garantir o seu sustento enquanto estiver incapacitado.</p>
+                </div>
+                <!-- Serviço 4 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-heart-break text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Pensão por Morte</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Asseguramos o amparo financeiro para dependentes. Resolvemos entraves burocráticos no momento mais difícil.</p>
+                </div>
+                <!-- Serviço 5 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="250">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-wheelchair text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">BPC / LOAS</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Benefício assistencial de 1 salário mínimo para idosos (65+) ou pessoas com deficiência de baixa renda.</p>
+                </div>
+                <!-- Serviço 6 -->
+                <div class="glass-panel p-6 rounded-xl flex flex-col h-full" data-aos="fade-up" data-aos-delay="300">
+                    <div class="mb-4 text-brand-gold"><i class="ph ph-calculator text-4xl"></i></div>
+                    <h3 class="text-xl font-heading font-bold mb-2">Revisão de Benefícios</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow">Já é aposentado mas acha que ganha pouco? Analisamos seu processo para buscar aumentos e atrasados (Ex: Revisão da Vida Toda).</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center" data-aos="fade-up">
+                 <a href="#contato" class="inline-flex items-center gap-2 bg-white text-brand-dark font-bold py-3 px-8 rounded-lg hover:bg-gray-200 transition-colors">
+                    Solicitar Análise Gratuita <i class="ph ph-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Dúvidas Frequentes</h2>
+                <p class="text-gray-400">Respostas rápidas para as principais perguntas de nossos clientes.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ 1 -->
+                <details class="glass-panel rounded-xl group cursor-pointer" open>
+                    <summary class="flex justify-between items-center font-medium p-6 text-lg">
+                        <span>1. Preciso pagar para vocês analisarem meu caso?</span>
+                        <span class="transition group-open:rotate-180 text-brand-gold">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-6 pt-0 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        Não. A nossa primeira análise é totalmente gratuita. Você nos envia sua documentação ou extrato do CNIS e nós avaliamos a viabilidade do seu direito sem nenhum custo.
+                    </div>
+                </details>
+                <!-- FAQ 2 -->
+                <details class="glass-panel rounded-xl group cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-6 text-lg">
+                        <span>2. O INSS negou meu benefício, ainda tem jeito?</span>
+                        <span class="transition group-open:rotate-180 text-brand-gold">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-6 pt-0 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        Sim! É muito comum o INSS negar benefícios injustamente. Nós podemos entrar com um recurso administrativo ou ingressar com uma ação judicial para reverter essa decisão e garantir os pagamentos retroativos.
+                    </div>
+                </details>
+                <!-- FAQ 3 -->
+                <details class="glass-panel rounded-xl group cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-6 text-lg">
+                        <span>3. Vocês atendem clientes de fora de São Paulo?</span>
+                        <span class="transition group-open:rotate-180 text-brand-gold">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-6 pt-0 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        Com certeza. Hoje, os processos do INSS e judiciais são 100% digitais. Realizamos reuniões por vídeo e WhatsApp, atendendo com excelência clientes de qualquer lugar do Brasil.
+                    </div>
+                </details>
+                 <!-- FAQ 4 -->
+                 <details class="glass-panel rounded-xl group cursor-pointer">
+                    <summary class="flex justify-between items-center font-medium p-6 text-lg">
+                        <span>4. Quanto tempo demora um processo contra o INSS?</span>
+                        <span class="transition group-open:rotate-180 text-brand-gold">
+                            <i class="ph ph-caret-down"></i>
+                        </span>
+                    </summary>
+                    <div class="text-gray-400 p-6 pt-0 text-sm leading-relaxed border-t border-white/5 mt-2">
+                        O tempo varia bastante dependendo da complexidade do caso e da região. Porém, atuamos com agilidade desde o primeiro dia e solicitamos prioridade em todos os casos permitidos por lei, para que você receba o quanto antes.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final (Contato) -->
+    <section id="contato" class="py-24 bg-gradient-to-t from-black to-brand-dark">
+        <div class="container mx-auto px-6">
+            <div class="glass-panel rounded-3xl p-8 md:p-14 border-brand-gold/20 relative overflow-hidden" data-aos="zoom-in">
+                <div class="absolute inset-0 bg-brand-gold/5"></div>
+                <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div class="lg:w-1/2 text-center lg:text-left">
+                        <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">Chega de lutar sozinho contra a burocracia.</h2>
+                        <p class="text-lg text-gray-300 mb-8">Nossa equipe está a postos para entender a sua história e brigar pelo que é seu. Entre em contato agora e dê o primeiro passo para a sua tranquilidade financeira.</p>
+                        
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-4 justify-center lg:justify-start">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="ph-fill ph-whatsapp-logo"></i></div>
+                                <div class="text-left">
+                                    <p class="text-sm text-gray-400">Fale pelo WhatsApp</p>
+                                    <p class="font-bold text-lg">(11) 91556-4440</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 justify-center lg:justify-start">
+                                <div class="w-12 h-12 rounded-full bg-brand-gold/10 text-brand-gold flex items-center justify-center text-xl shrink-0"><i class="ph-fill ph-map-pin"></i></div>
+                                <div class="text-left">
+                                    <p class="text-sm text-gray-400">Escritório Principal</p>
+                                    <p class="font-bold text-sm">Rua Gomes de Carvalho, 911<br>Vila Olímpia, São Paulo/SP</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:w-1/2 w-full">
+                        <form id="contact-form" class="space-y-4 bg-black/40 p-8 rounded-2xl backdrop-blur-md border border-white/10">
+                            <h3 class="text-2xl font-heading font-bold mb-6 text-center">Formulário de Análise</h3>
+                            <div>
+                                <input type="text" id="name" placeholder="Nome Completo" required class="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <div>
+                                <input type="email" id="email" placeholder="E-mail" class="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <div>
+                                <input type="tel" id="phone" placeholder="WhatsApp (com DDD)" required class="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors">
+                            </div>
+                            <div>
+                                <textarea id="message" rows="3" placeholder="Conte brevemente o seu problema" class="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-brand-gold transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-gold text-brand-dark font-bold py-4 rounded-lg hover:bg-brand-goldHover transition-colors text-lg flex justify-center items-center gap-2">
+                                Enviar Solicitação <i class="ph-bold ph-paper-plane-right"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/10">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <a href="#">
+                <img src="/imgs/logo.png" alt="Logo RCA Advocacia" class="h-8 w-auto opacity-70 grayscale hover:grayscale-0 transition-all">
+            </a>
+            <div class="text-center md:text-right text-gray-500 text-sm">
+                <p>&copy; <span id="year"></span> RCA Advocacia. Todos os direitos reservados.</p>
+                <p class="mt-1 text-xs">Desenvolvido com excelência.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="fixed bottom-6 right-6 z-50 wa-container flex items-center gap-4">
+        <div class="wa-tooltip bg-white text-black text-sm font-bold py-2 px-4 rounded-xl shadow-xl">
+            Precisa de ajuda? Fale com a gente!
+        </div>
+        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+uma+avalia%C3%A7%C3%A3o+do+meu+caso+previdenci%C3%A1rio." target="_blank" rel="noopener noreferrer" class="relative group">
+            <div class="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-75"></div>
+            <div class="relative bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center h-16 w-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.068-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+            </div>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Init Animations
+        AOS.init({
+            once: true,
+            offset: 50,
+        });
+
+        // Set Current Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Forms Handlers
+        function setupForm(formId) {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Form ids may vary between hero-form and contact-form
+                const name = document.getElementById(formId === 'hero-form' ? 'h-name' : 'name').value;
+                const phone = document.getElementById(formId === 'hero-form' ? 'h-phone' : 'phone').value;
+                const messageEl = document.getElementById('message');
+                const message = messageEl ? messageEl.value : 'Gostaria de uma análise rápida.';
+                
+                const wppNum = '5511915564440';
+                const text = `Olá! Vim pelo site e gostaria de uma avaliação de caso Previdenciário.\n\n*Nome:* ${name}\n*Telefone:* ${phone}\n*Detalhes:* ${message}`;
+                
+                window.open(`https://wa.me/${wppNum}?text=${encodeURIComponent(text)}`, '_blank');
+            });
+        }
+
+        setupForm('hero-form');
+        setupForm('contact-form');
+    </script>
+</body>
+</html>
