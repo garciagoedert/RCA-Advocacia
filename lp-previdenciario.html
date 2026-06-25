@@ -22,18 +22,18 @@
            Amarelo Pantone 136 C  → #F5A800
         ============================================= */
         :root {
-            --inss-blue:        #0060A8;
-            --inss-blue-dark:   #004A82;
-            --inss-blue-light:  #E8F3FB;
-            --inss-green:       #009A44;
-            --inss-green-light: #E6F5EC;
-            --inss-yellow:      #F5A800;
-            --inss-yellow-bg:   #FFF8E7;
-            --gray-100:         #F4F6F9;
-            --gray-200:         #E2E8F0;
-            --gray-400:         #94A3B8;
-            --gray-600:         #475569;
-            --gray-800:         #1E293B;
+            --inss-blue:        #0E1E38; /* Premium Navy Blue */
+            --inss-blue-dark:   #071120; /* Darker Navy for hover/contrast */
+            --inss-blue-light:  #F0F4F8; /* Soft ice blue background/tint */
+            --inss-green:       #15803D; /* Muted Premium Green for success/whatsapp */
+            --inss-green-light: #F0FDF4; /* Light Green tint */
+            --inss-yellow:      #C5A880; /* Premium Champagne Gold/Beige */
+            --inss-yellow-bg:   #F9F6F0; /* Soft Linen/Beige background */
+            --gray-100:         #F3EFE6; /* Warm Beige-gray */
+            --gray-200:         #E6DFD3; /* Border Warm Beige */
+            --gray-400:         #A8A295; /* Text Muted */
+            --gray-600:         #6B6457; /* Text Medium */
+            --gray-800:         #23211E; /* Slate Stone Dark Text */
             --white:            #FFFFFF;
             --text-base:        18px;
             --radius:           14px;
@@ -64,17 +64,22 @@
             gap: 10px;
             background: var(--inss-blue);
             color: var(--white);
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Source Sans 3', sans-serif;
             font-size: 1.15rem;
-            font-weight: 800;
+            font-weight: 700;
             padding: 18px 32px;
             border-radius: var(--radius);
             border: none;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(14, 30, 56, 0.2);
         }
-        .btn-primary:hover, .btn-primary:focus { background: var(--inss-blue-dark); }
+        .btn-primary:hover, .btn-primary:focus {
+            background: var(--inss-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 30, 56, 0.25);
+        }
 
         .btn-whatsapp {
             display: inline-flex;
@@ -83,24 +88,30 @@
             gap: 10px;
             background: var(--inss-green);
             color: var(--white);
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Source Sans 3', sans-serif;
             font-size: 1.2rem;
-            font-weight: 800;
+            font-weight: 700;
             padding: 20px 32px;
             border-radius: var(--radius);
             border: none;
             cursor: pointer;
             width: 100%;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(21, 128, 61, 0.25);
         }
-        .btn-whatsapp:hover, .btn-whatsapp:focus { background: #007A35; }
+        .btn-whatsapp:hover, .btn-whatsapp:focus {
+            background: #118037;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(21, 128, 61, 0.35);
+        }
 
         .section-tag {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--inss-blue-light);
+            background: var(--inss-yellow-bg);
             color: var(--inss-blue);
+            border: 1px solid var(--gray-200);
             font-weight: 700;
             font-size: 0.9rem;
             padding: 6px 16px;
@@ -116,7 +127,7 @@
             color: var(--gray-800);
             margin-bottom: 12px;
         }
-        .section-title span { color: var(--inss-blue); }
+        .section-title span { color: var(--inss-yellow); }
 
         .section-sub {
             font-size: 1.05rem;
@@ -155,27 +166,31 @@
             border-radius: var(--radius);
             white-space: nowrap;
         }
-        header .header-cta:hover { background: #e09900; }
+        header .header-cta:hover { background: #B0926A; }
 
         /* ── HERO ── */
         .hero {
-            background: linear-gradient(155deg, var(--inss-blue) 0%, #004A82 100%);
-            padding: 48px 0 56px;
+            background: radial-gradient(circle at top right, rgba(197, 168, 128, 0.12), transparent 60%), 
+                        linear-gradient(135deg, var(--inss-blue) 0%, var(--inss-blue-dark) 100%);
+            padding: 56px 0 64px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255,255,255,0.15);
-            border: 1.5px solid rgba(255,255,255,0.3);
-            color: var(--white);
+            background: rgba(197, 168, 128, 0.12);
+            border: 1.5px solid rgba(197, 168, 128, 0.35);
+            color: var(--inss-yellow);
             font-weight: 700;
             font-size: 0.9rem;
             padding: 8px 18px;
             border-radius: 100px;
             margin-bottom: 24px;
+            backdrop-filter: blur(4px);
         }
 
         .hero h1 {
@@ -205,7 +220,8 @@
             max-width: 480px;
             margin: 0 auto;
             text-align: left;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 20px 40px rgba(7, 17, 32, 0.15);
         }
 
         .hero-form-card h3 {
@@ -261,8 +277,8 @@
         /* ── STATS STRIP ── */
         .stats-strip {
             background: var(--inss-yellow-bg);
-            border-top: 3px solid var(--inss-yellow);
-            border-bottom: 3px solid var(--inss-yellow);
+            border-top: 1.5px solid var(--inss-yellow);
+            border-bottom: 1.5px solid var(--inss-yellow);
             padding: 28px 0;
         }
 
@@ -305,7 +321,15 @@
             border-radius: var(--radius);
             padding: 28px 24px;
             border-left: 5px solid var(--inss-blue);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-top: 1px solid rgba(230, 223, 211, 0.5);
+            border-right: 1px solid rgba(230, 223, 211, 0.5);
+            border-bottom: 1px solid rgba(230, 223, 211, 0.5);
+            box-shadow: 0 4px 20px rgba(35, 33, 30, 0.04);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(35, 33, 30, 0.08);
         }
 
         .card-icon {
@@ -344,21 +368,27 @@
             align-items: flex-start;
             padding: 22px 20px;
             border-radius: var(--radius);
-            border: 2px solid var(--gray-200);
+            border: 1px solid var(--gray-200);
             margin-bottom: 14px;
             background: var(--white);
+            transition: all 0.3s ease;
+        }
+        .servico-item:hover {
+            border-color: var(--inss-yellow);
+            box-shadow: 0 6px 20px rgba(197, 168, 128, 0.08);
+            transform: translateX(4px);
         }
 
         .servico-icon {
             min-width: 52px;
             height: 52px;
-            background: var(--inss-green-light);
+            background: var(--inss-blue-light);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
-            color: var(--inss-green);
+            color: var(--inss-blue);
         }
 
         .servico-text h3 {
@@ -395,7 +425,7 @@
             top: 52px;
             width: 2px;
             height: calc(100% - 20px);
-            background: rgba(255,255,255,0.2);
+            background: rgba(197, 168, 128, 0.3);
         }
 
         .step-num {
@@ -481,7 +511,7 @@
 
         /* ── CTA FINAL ── */
         .cta-final {
-            background: linear-gradient(155deg, var(--inss-blue) 0%, #004A82 100%);
+            background: linear-gradient(155deg, var(--inss-blue) 0%, var(--inss-blue-dark) 100%);
             padding: 60px 0;
             text-align: center;
         }
@@ -593,7 +623,7 @@
             height: 64px;
             background: var(--inss-green);
             border-radius: 50%;
-            box-shadow: 0 6px 24px rgba(0,154,68,0.4);
+            box-shadow: 0 6px 24px rgba(22, 163, 74, 0.4);
         }
         .wa-btn svg { width: 34px; height: 34px; fill: var(--white); }
 
@@ -610,14 +640,20 @@
             background: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            border: 2px solid var(--gray-200);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            border: 1px solid var(--gray-200);
+            box-shadow: 0 10px 30px rgba(35, 33, 30, 0.05);
+            transition: all 0.3s ease;
+        }
+        .lawyer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(35, 33, 30, 0.1);
+            border-color: var(--inss-yellow);
         }
 
         .lawyer-photo-wrap {
             position: relative;
             width: 100%;
-            aspect-ratio: 4/3;
+            aspect-ratio: 1/1; /* Square ratio on mobile to keep faces centered and uncropped */
             overflow: hidden;
             background: var(--gray-100);
         }
@@ -626,7 +662,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: top center;
+            object-position: center 15%; /* Vertically centers the lawyer's face perfectly */
             display: block;
         }
 
@@ -641,6 +677,7 @@
             padding: 5px 12px;
             border-radius: 100px;
             letter-spacing: 0.03em;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .lawyer-info {
@@ -658,7 +695,7 @@
         .lawyer-oab {
             font-size: 0.9rem;
             font-weight: 600;
-            color: var(--inss-blue);
+            color: var(--inss-yellow);
             margin-bottom: 14px;
             display: flex;
             align-items: center;
@@ -679,8 +716,9 @@
         }
 
         .lawyer-tag {
-            background: var(--inss-blue-light);
-            color: var(--inss-blue);
+            background: var(--inss-yellow-bg);
+            color: var(--gray-800);
+            border: 1px solid var(--gray-200);
             font-size: 0.82rem;
             font-weight: 700;
             padding: 5px 12px;
@@ -703,8 +741,14 @@
             border: none;
             cursor: pointer;
             font-family: 'Source Sans 3', sans-serif;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(22, 163, 74, 0.2);
         }
-        .lawyer-cta:hover { background: #007A35; }
+        .lawyer-cta:hover { 
+            background: #118037; 
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(22, 163, 74, 0.3);
+        }
 
         /* ── TABLET+ ADJUSTMENTS ── */
         @media (min-width: 640px) {
@@ -847,7 +891,7 @@
                     <p>Só pagamos se você ganhar a causa. Na maioria dos casos, o seu risco é <strong>zero</strong>.</p>
                 </div>
                 <div class="card" style="border-left-color: var(--inss-yellow);">
-                    <div class="card-icon" style="background:var(--inss-yellow-bg); color:#B87D00;"><i class="ph ph-users-three"></i></div>
+                    <div class="card-icon" style="background:var(--inss-yellow-bg); color:#A38258;"><i class="ph ph-users-three"></i></div>
                     <h3>Atendimento Humano</h3>
                     <p>Atendemos com clareza, paciência e cuidado — presencialmente ou pelo WhatsApp.</p>
                 </div>
@@ -872,14 +916,14 @@
                 <!-- Advogado 1 -->
                 <div class="lawyer-card">
                     <div class="lawyer-photo-wrap">
-                        <img src="/imgs/edit001.png" alt="Advogado Especialista em Direito Previdenciário">
+                        <img src="/imgs/dscCAUE.jpg" alt="Dr. Cauê Rabelo Santos">
                         <span class="lawyer-badge">Sócio Fundador</span>
                     </div>
                     <div class="lawyer-info">
-                        <h3>Dr. [Nome do Advogado]</h3>
+                        <h3>Dr. Cauê Rabelo Santos</h3>
                         <div class="lawyer-oab">
                             <i class="ph-fill ph-identification-card"></i>
-                            OAB/SP 000.000
+                            OAB/SP 352.731
                         </div>
                         <p class="lawyer-bio">
                             Especialista em Direito Previdenciário com mais de 10 anos de experiência. Atua na defesa de segurados do INSS, com foco em aposentadorias, revisões de benefícios e recursos administrativos.
@@ -889,7 +933,7 @@
                             <span class="lawyer-tag">Revisão de Benefícios</span>
                             <span class="lawyer-tag">Recursos ao INSS</span>
                         </div>
-                        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+especialista+sobre+meu+caso." target="_blank" class="lawyer-cta">
+                        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+gostaria+de+falar+com+o+Dr.+Cau%C3%AA+sobre+meu+caso." target="_blank" class="lawyer-cta">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.068-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
                             Falar com este advogado
                         </a>
@@ -899,14 +943,14 @@
                 <!-- Advogado 2 -->
                 <div class="lawyer-card">
                     <div class="lawyer-photo-wrap">
-                        <img src="/imgs/edit002.png" alt="Advogado Especialista em Direito Previdenciário">
+                        <img src="/imgs/edit002.png" alt="Dr. Willian de Azevedo Baia">
                         <span class="lawyer-badge">Especialista Sênior</span>
                     </div>
                     <div class="lawyer-info">
-                        <h3>Dr. [Nome do Advogado]</h3>
+                        <h3>Dr. Willian de Azevedo Baia</h3>
                         <div class="lawyer-oab">
                             <i class="ph-fill ph-identification-card"></i>
-                            OAB/SP 000.000
+                            OAB/SP 349.787
                         </div>
                         <p class="lawyer-bio">
                             Advogado previdenciarista com vasta experiência em ações judiciais contra o INSS. Especializado em benefícios por incapacidade, pensão por morte e BPC/LOAS para famílias de baixa renda.
@@ -916,7 +960,7 @@
                             <span class="lawyer-tag">Pensão por Morte</span>
                             <span class="lawyer-tag">BPC / LOAS</span>
                         </div>
-                        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+gostaria+de+falar+com+um+especialista+sobre+meu+caso." target="_blank" class="lawyer-cta">
+                        <a href="https://wa.me/5511915564440?text=Ol%C3%A1%2C+gostaria+de+falar+com+o+Dr.+Willian+sobre+meu+caso." target="_blank" class="lawyer-cta">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.068-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/></svg>
                             Falar com este advogado
                         </a>
